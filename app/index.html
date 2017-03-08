@@ -16,8 +16,8 @@
       <div class="row">
         <header id="authBox" class="twelve columns" ng-controller="mainController">
           <h1 class="u-pull-left">TwitchApp</h1>
-          <button ng-if="authenticated == false" ng-click="redirect()" class="button u-pull-right">Connexion</button>
-          <p class="u-pull-right" ng-if="authenticated">Logged in as : {{ username }}</p>
+          <div id="logout" class="u-pull-right" ng-if="authenticated">Logged in as : {{ username }} - <a href="#" ng-click="disconnect()">Disconnect</a></div>
+          <button ng-if="authenticated === false" ng-click="redirect()" class="button u-pull-right">Connexion</button>
         </header>
       </div>
     </div>

@@ -17,6 +17,8 @@ let app = angular
     'ngSanitize',
     'ngTouch'
   ]);
+
+  
   // .config(function ($routeProvider, $locationProvider) {
   //   $routeProvider
   //     .when('/', {
