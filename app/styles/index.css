@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+/*****AUTH*****/    
+
+header {
+    color: white;
+    padding: 15px;
+}
+
+#authBox {
+    background-color: #6441a5;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+button {
+    margin: 20px;
+}

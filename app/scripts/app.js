@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+let app = angular
   .module('twitchApiApp', [
     'ngAnimate',
     'ngCookies',
@@ -16,20 +16,17 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+  ]);
+  // .config(function ($routeProvider, $locationProvider) {
+  //   $routeProvider
+  //     .when('/', {
+  //       templateUrl: 'views/main.html',
+  //       controller: 'mainController',
+  //       controllerAs: 'main'
+  //     })
+  //     .otherwise({
+  //       redirectTo: '/'
+  //     });
+
+  //     $locationProvider.html5Mode(true);
+  // });
