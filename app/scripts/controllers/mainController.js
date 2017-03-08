@@ -9,21 +9,24 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
   $scope.redirect = function () {
     window.location = 'https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=' + clientId + '&redirect_uri=http://localhost:9000&force_verify=true&scope=user_read';
   };
-  $scope.disconnect = function() {
-      $scope.authenticated = false;
-      auth.removeCookie();
+  $scope.disconnect = function () {
+    $scope.authenticated = false;
+    token = "";
+    auth.removeCookie();
   }
   $scope.authenticated = false;
-  //End Scope
 
-  if ($location.hash()) {
-    token = parse.parse($location.hash(), '&').access_token;
-  }
+  // Authentication
 
-  if (auth.getCookie('token')) {
+    if (auth.getCookie('token')) {
+      console.log('cookie');
       token = auth.getCookie('token');
-  }
+    } else if ($location.hash()) {
+      console.log('hash');
+      token = parse.parse($location.hash(), '&').access_token;
+    }
 
+  // Get User infos
   if (token) {
     auth.getUser(token)
       .then((data) => {
