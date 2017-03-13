@@ -1,0 +1,6 @@
+<img ng-src="{{ stream.preview.large }}" class="img-responsive thumbnail"/>
+<p class="channel"><a href="https://www.twitch.tv/{{ stream.channel.name }}" target="_blank">{{ stream.channel.name }}</a></p>
+<div class="info">
+    <p class="status">{{ stream.channel.status }}</p>
+    <p><a target="_blank" href="https://www.twitch.tv/directory/game/{{ stream.game }}">{{ stream.game}}</a> - {{ stream.viewers }} <i class="fa fa-users" style="color: #6441a5"></i>
+</div>

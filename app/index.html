@@ -5,22 +5,31 @@
   <meta charset="utf-8">
   <title>Twitch App</title>
   <meta name="viewport" content="width=device-width">
-  <link href="bower_components/skeleton/css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="bower_components/skeleton/css/skeleton.css" rel="stylesheet" type="text/css">
+  <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="styles/index.css" rel="stylesheet" type="text/css">
+  <link href="styles/thumbnail.css" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <base href="/">
 </head>
-
   <body ng-app="twitchApiApp">
-    <div class="container">
+    <div class="container-fluid" ng-controller="mainController">
       <div class="row">
-        <header id="authBox" class="twelve columns" ng-controller="mainController">
-          <h1 class="u-pull-left">TwitchApp</h1>
-          <div id="logout" class="u-pull-right" ng-if="authenticated">Logged in as : {{ username }} - <a href="#" ng-click="disconnect()">Disconnect</a></div>
-          <button ng-if="authenticated === false" ng-click="redirect()" class="button u-pull-right">Connexion</button>
+        <header id="authBox" class="col-md-12">
+          <h1>TwitchApp</h1>
+          <div id="logout" class="pull-right" ng-if="authenticated">Logged in as : {{ username }} - <a href="#" ng-click="disconnect()">Disconnect</a></div>
+          <button ng-if="authenticated === false" ng-click="redirect()" class="btn pull-right">Connexion</button>
         </header>
       </div>
+      <div class="content">
+        <div id="followedStreams" class="row">
+          <div ng-repeat="stream in streams" class="col-lg-4 col-sm-6 col-xs-12 thumbnailDiv">
+            <thumbnail stream="stream"></thumbnail>
+          </div>
+        </div>
+      </div>
     </div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -33,5 +42,6 @@
     <script src="scripts/services/auth.js"></script>
     <script src="scripts/services/parse.js"></script>
     <script src="scripts/services/getStreams.js"></script>
+    <script src="scripts/directives/thumbnail.js"></script>
   </body>
 </html>

@@ -33,6 +33,13 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
         $scope.authenticated = true;
         $scope.username = data.token.user_name;
         auth.setCookie(token);
+        getStreams.getFollowedStreams(clientId, token)
+          .then( (response) => {
+            $scope.streams = response.streams;
+            console.log(response);
+          }, (err) => {
+            console.log(err);
+          })
       }, (err) => {
         console.log('error : ' + err);
       });

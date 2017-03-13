@@ -3,7 +3,10 @@
 body {
     font-family: 'PT Sans', sans-serif;
 }
-/*****AUTH*****/    
+/*****AUTH*****/
+header h1 {
+    display: inline-block;
+}
 
 header {
     color: white;
@@ -12,9 +15,6 @@ header {
 
 #authBox {
     background-color: #6441a5;
-    position: fixed;
-    top: 0px;
-    left: 0px;
 }
 
 button {

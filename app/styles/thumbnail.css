@@ -1,0 +1,31 @@
+#followedStreams {
+    width: 80%;
+    margin: 50px auto;
+}
+ .thumbnailDiv {
+     position: relative;
+ }
+
+ .thumbnailDiv img {
+     display: block;
+     margin: 0 auto;
+ }
+
+ .channel {
+     position: absolute;
+     top: 10px;
+     left: 10%;
+ }
+
+ .channel a {
+     color: white;
+     text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+ }
+
+.info {
+    text-align: center;
+}
