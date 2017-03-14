@@ -8,4 +8,4 @@ app.directive('thumbnail', () => {
         },
         templateUrl: '../../views/partial/thumbnail.html'
     }
-})
+});

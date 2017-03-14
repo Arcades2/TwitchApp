@@ -20,6 +20,25 @@ app.factory('getStreams', ($http, $q ) => {
              });
 
              return deferred.promise;
+        },
+
+        getTopStream: function(clientID) {
+            let deferred = $q.defer();
+
+            $http({
+                method: 'GET',
+                url: 'https://api.twitch.tv/kraken/streams?limit=1',
+                headers: {
+                    'Client-ID': clientID
+                }
+            })
+            .then( (response) => {
+                deferred.resolve(response.data);
+            }, (err) => {
+                deferred.reject(err.data);
+            });
+
+            return deferred.promise;
         }
     };
 });

@@ -16,16 +16,23 @@
       <div class="row">
         <header id="authBox" class="col-md-12">
           <h1>TwitchApp</h1>
-          <div id="logout" class="pull-right" ng-if="authenticated">Logged in as : {{ username }} - <a href="#" ng-click="disconnect()">Disconnect</a></div>
-          <button ng-if="authenticated === false" ng-click="redirect()" class="btn pull-right">Connexion</button>
+          <div id="logout" class="pull-right" ng-if="authenticated">Logged in as : {{ username }} - <a href="#" ng-click="disconnect()">Log Out</a></div>
+          <button ng-if="authenticated === false" ng-click="redirect()" class="btn pull-right">Log In</button>
         </header>
       </div>
       <div class="content">
-        <div id="followedStreams" class="row">
+        <div ng-if="authenticated" id="followedStreams" class="row">
           <div ng-repeat="stream in streams" class="col-lg-4 col-sm-6 col-xs-12 thumbnailDiv">
             <thumbnail stream="stream"></thumbnail>
           </div>
         </div>
+        <div id="index" class="well" ng-if="authenticated === false">
+          <h2>Welcome on TwitchApp</h2>
+          <p>Hit the Log In button to enjoy your favorites streamers on the Twitch Platform</p>
+        </div>
+        <div id="player" class="embed-responsive embed-responsive-16by9 col-md-10 col-md-offset-1">
+          <twitchplayer name="actualStream"></twitchplayer>
+        </div>        
       </div>
     </div>
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -43,5 +50,7 @@
     <script src="scripts/services/parse.js"></script>
     <script src="scripts/services/getStreams.js"></script>
     <script src="scripts/directives/thumbnail.js"></script>
+    <script src="scripts/directives/twitchplayer.js"></script>
+    <script src="scripts/filters/twitchEmbedUrl.js"></script>
   </body>
 </html>

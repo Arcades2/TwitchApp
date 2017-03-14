@@ -29,3 +29,12 @@ button:hover {
 #logout {
     margin-top: 30px;
 }
+
+/*****CONTENT*****/
+#index {
+    text-align: center;
+}
+
+#player iframe {
+    max-height: 500px;
+}

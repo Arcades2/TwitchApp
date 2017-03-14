@@ -16,6 +16,15 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
   }
   $scope.authenticated = false;
 
+  getStreams.getTopStream(clientId)
+  .then( (response) => {
+    $scope.actualStream = response.streams[0].channel.name;
+    console.log($scope.topStream);
+  }, (err) => {
+    console.log(err);
+  });
+
+
   // Authentication
 
     if (auth.getCookie('token')) {
