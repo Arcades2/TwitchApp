@@ -7,5 +7,5 @@ app.directive('twitchplayer', () => {
             name: '=name'
         },
         templateUrl: '../../views/partial/twitchplayer.html'
-    }
+    };
 });

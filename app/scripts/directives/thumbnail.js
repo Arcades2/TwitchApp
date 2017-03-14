@@ -7,5 +7,5 @@ app.directive('thumbnail', () => {
             stream: '=stream'
         },
         templateUrl: '../../views/partial/thumbnail.html'
-    }
+    };
 });

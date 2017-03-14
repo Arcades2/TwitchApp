@@ -22,7 +22,7 @@
       </div>
       <div class="content">
         <div ng-if="authenticated" id="followedStreams" class="row">
-          <div ng-repeat="stream in streams" class="col-lg-4 col-sm-6 col-xs-12 thumbnailDiv">
+          <div ng-click="setActualStream(stream.channel.name)" ng-repeat="stream in streams" class="col-lg-4 col-sm-6 col-xs-12 thumbnailDiv">
             <thumbnail stream="stream"></thumbnail>
           </div>
         </div>

@@ -13,13 +13,17 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
     $scope.authenticated = false;
     token = "";
     auth.removeCookie();
-  }
+  };
   $scope.authenticated = false;
+  $scope.setActualStream = function(name) {
+    console.log(name);
+    $scope.actualStream = name;
+  };
 
   getStreams.getTopStream(clientId)
   .then( (response) => {
     $scope.actualStream = response.streams[0].channel.name;
-    console.log($scope.topStream);
+    console.log($scope.actualStream);
   }, (err) => {
     console.log(err);
   });
@@ -46,7 +50,7 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
             console.log(response);
           }, (err) => {
             console.log(err);
-          })
+          });
       }, (err) => {
         console.log('error : ' + err);
       });
