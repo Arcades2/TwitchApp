@@ -19,10 +19,8 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
   // Authentication
 
     if (auth.getCookie('token')) {
-      console.log('cookie');
       token = auth.getCookie('token');
     } else if ($location.hash()) {
-      console.log('hash');
       token = parse.parse($location.hash(), '&').access_token;
     }
 

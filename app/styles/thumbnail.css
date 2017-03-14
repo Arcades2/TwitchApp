@@ -4,6 +4,7 @@
 }
  .thumbnailDiv {
      position: relative;
+     margin-bottom: 15px;
  }
 
  .thumbnailDiv img {
@@ -12,9 +13,10 @@
  }
 
  .channel {
+     font-size: 1.1em;
      position: absolute;
      top: 10px;
-     left: 10%;
+     left: 35px;
  }
 
  .channel a {
@@ -28,4 +30,20 @@
 
 .info {
     text-align: center;
+}
+
+.status {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.viewers {
+    padding: 5px;
+    background-color: #8f8f8f;
+    color: white;
+    position: absolute;
+    bottom: 70px;
+    right: 24px;
+    border-radius: 5px 5px 0px 5px;
 }

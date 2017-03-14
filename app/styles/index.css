@@ -18,7 +18,12 @@ header {
 }
 
 button {
+    color: #6441a5;
     margin: 20px;
+}
+
+button:hover {
+    opacity: 0.8;
 }
 
 #logout {
