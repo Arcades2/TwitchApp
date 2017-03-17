@@ -5,11 +5,14 @@
  .thumbnailDiv {
      position: relative;
      margin-bottom: 15px;
+     background-color: #F1EBF7;
+     padding: 0 10px;
  }
 
  .thumbnailDiv img {
      display: block;
      margin: 0 auto;
+     cursor: pointer;
  }
 
  .channel {

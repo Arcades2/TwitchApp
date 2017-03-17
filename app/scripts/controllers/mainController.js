@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getStreams', ($scope, auth, $location, parse, getStreams) => {
+app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getStreams', '$interval', ($scope, auth, $location, parse, getStreams, $interval) => {
   //Varibles
   let clientId = 'o7uz4yl43vuwdurmvikzjji7ixxvsv';
   let token;
@@ -16,14 +16,15 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
   };
   $scope.authenticated = false;
   $scope.setActualStream = function(name) {
-    console.log(name);
     $scope.actualStream = name;
+    angular.element('html, body').animate({
+      scrollTop: angular.element('#player').offset().top - 20
+    }, 'slow');
   };
 
   getStreams.getTopStream(clientId)
   .then( (response) => {
     $scope.actualStream = response.streams[0].channel.name;
-    console.log($scope.actualStream);
   }, (err) => {
     console.log(err);
   });
@@ -47,7 +48,6 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
         getStreams.getFollowedStreams(clientId, token)
           .then( (response) => {
             $scope.streams = response.streams;
-            console.log(response);
           }, (err) => {
             console.log(err);
           });
@@ -55,4 +55,14 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
         console.log('error : ' + err);
       });
   }
+
+  //Refresh of streams
+  $interval(function() {
+    getStreams.getFollowedStreams(clientId, token)
+      .then( (response) => {
+        $scope.streams = response.streams;
+      }, (err) => {
+        console.log('err:' + err);
+      });
+  }, 2*60*1000);
 }]);

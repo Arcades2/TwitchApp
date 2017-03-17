@@ -7,7 +7,6 @@ app.factory('auth', ['$http', '$q', '$cookies', ($http, $q, $cookies) => {
 
            $http.get('https://api.twitch.tv/kraken?oauth_token=' + token)
            .then( (response) => {
-               console.log(response.data);
                deferred.resolve(response.data);
            }, (err) => {
                deferred.reject(err.data);
