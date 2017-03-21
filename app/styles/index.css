@@ -3,7 +3,7 @@
 body {
     font-family: 'PT Sans', sans-serif;
 }
-/*****AUTH*****/
+/*****HEADER*****/
 header h1 {
     display: inline-block;
 }
@@ -29,12 +29,32 @@ button:hover {
 #logout {
     margin-top: 30px;
 }
+/*****END HEADER*****/
 
 /*****CONTENT*****/
 #index {
     text-align: center;
 }
 
+#player {
+    margin-bottom: 10px;
+    padding-bottom: 45%
+}
+
 #player iframe {
     max-height: 600px;
 }
+/*****END CONTENT*****/
+
+/*****FOOTER*****/
+footer {
+    display: inline-block;
+    background-color: #737373;
+    height: 50px;
+    color: white;
+}
+
+footer p {
+    margin: 15px;
+}
+/*****END FOOTER*****/
