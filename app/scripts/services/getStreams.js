@@ -1,9 +1,9 @@
 'use strict';
 
-app.factory('getStreams', ($http, $q ) => {
+app.factory('getStreams', function($http, $q ) {
     return {
         getFollowedStreams: function(clientID, token) {
-            let deferred = $q.defer();
+            var deferred = $q.defer();
 
             $http({
                 method: 'GET',
@@ -13,9 +13,9 @@ app.factory('getStreams', ($http, $q ) => {
                     'Authorization': 'OAuth ' + token
                 }
             })
-            .then( (response) => {
+            .then( function(response) {
                 deferred.resolve(response.data);
-            }, (err) => {
+            }, function(err) {
                 deferred.reject(err.data);
              });
 
@@ -23,7 +23,7 @@ app.factory('getStreams', ($http, $q ) => {
         },
 
         getTopStream: function(clientID) {
-            let deferred = $q.defer();
+            var deferred = $q.defer();
 
             $http({
                 method: 'GET',
@@ -32,9 +32,9 @@ app.factory('getStreams', ($http, $q ) => {
                     'Client-ID': clientID
                 }
             })
-            .then( (response) => {
+            .then( function(response) {
                 deferred.resolve(response.data);
-            }, (err) => {
+            }, function(err) {
                 deferred.reject(err.data);
             });
 

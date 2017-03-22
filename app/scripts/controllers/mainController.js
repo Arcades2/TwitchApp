@@ -1,9 +1,9 @@
 'use strict';
 
-app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getStreams', '$interval', ($scope, auth, $location, parse, getStreams, $interval) => {
+app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getStreams', '$interval', function($scope, auth, $location, parse, getStreams, $interval) {
   //Variables
-  let clientId = 'o7uz4yl43vuwdurmvikzjji7ixxvsv';
-  let token;
+  var clientId = 'o7uz4yl43vuwdurmvikzjji7ixxvsv';
+  var token = '';
 
   /*****Scope*****/
   $scope.redirect = function () {
@@ -26,9 +26,9 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
   //Refresh of streams
   $interval(function() {
     getStreams.getFollowedStreams(clientId, token)
-      .then( (response) => {
+      .then( function(response) {
         $scope.streams = response.streams;
-      }, (err) => {
+      }, function(err) {
         console.log('err:' + err);
       });
   }, 2*60*1000);
@@ -46,26 +46,26 @@ app.controller('mainController', ['$scope', 'auth', '$location', 'parse', 'getSt
     // Get the username, the followed streams and set the cookie for the future authentication
     if (token) {
       auth.getUser(token)
-        .then((data) => {
+        .then(function(data) {
           $scope.authenticated = true;
           $scope.username = data.token.user_name;
           auth.setCookie(token);
           getStreams.getFollowedStreams(clientId, token)
-            .then( (response) => {
+            .then( function(response) {
               $scope.streams = response.streams;
-            }, (err) => {
+            }, function(err) {
               console.log(err);
             });
-        }, (err) => {
+        }, function(err) {
           console.log('error : ' + err);
         });
     }
 
     // Set a default stream
       getStreams.getTopStream(clientId)
-        .then( (response) => {
+        .then( function(response) {
           $scope.actualStream = response.streams[0].channel.name;
-        }, (err) => {
+        }, function(err) {
           console.log(err);
       });
   };

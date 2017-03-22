@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('parse', () => {
+app.factory('parse', function() {
     return {
         parse: function(str, separator) {
             var parsed = {};

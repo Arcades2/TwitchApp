@@ -1,14 +1,14 @@
 'use strict';
 
-app.factory('auth', ['$http', '$q', '$cookies', ($http, $q, $cookies) => {
+app.factory('auth', ['$http', '$q', '$cookies', function($http, $q, $cookies) {
    return {
        getUser: function(token) {
-           let deferred = $q.defer();
+           var deferred = $q.defer();
 
            $http.get('https://api.twitch.tv/kraken?oauth_token=' + token)
-           .then( (response) => {
+           .then( function(response) {
                deferred.resolve(response.data);
-           }, (err) => {
+           }, function(err) {
                deferred.reject(err.data);
            });
            

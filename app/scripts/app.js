@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-let app = angular
+var app = angular
   .module('twitchApiApp', [
     'ngAnimate',
     'ngCookies',

@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('thumbnail', () => {
+app.directive('thumbnail', function() {
     return {
         restrict: 'E',
         scope: {

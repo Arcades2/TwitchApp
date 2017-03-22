@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('twitchplayer', () => {
+app.directive('twitchplayer', function() {
     return {
         restrict: 'E',
         scope: {
